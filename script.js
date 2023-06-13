@@ -46,7 +46,8 @@ else{
         var checkbox = document.createElement('input'); countofcheckboxes += 1;
         checkbox.type = 'checkbox';
         checkbox.className = 'myCheckbox';
-        
+        checkbox.onclick = checkboxfunc;
+        li.appendChild(checkbox);
        
         
         //making the crossbutton
@@ -66,10 +67,7 @@ else{
         console.log(ul);
 
 
-        checkbox.onclick = function(){
-            checkboxfunc(textNode);
-        };
-        li.appendChild(checkbox);
+     
 
 
 
@@ -114,10 +112,18 @@ addbutton.style.transform = `translateY(${offset}px)`;
     addbutton.style.transform = `translateY(${offset}px)`;
     writetaskinput.value = '';
 
+    var h1 =  document.getElementById('taskinbound');
+
     // checkbox functioality 
  
    checkbox.addEventListener('change' , ()=>{
-
+    if(checkbox.checked){
+        var String  = li.innerText;
+        h1.innerHTML = 'Task ' + String + ' is in bound!';
+    }
+    else{
+        h1.innerHTML = 'No task is selected!';
+    }
    })
 
 
@@ -147,7 +153,6 @@ setInterval(()  =>{
     mn.style.transform = `rotateZ(${mm}deg)`;
     sc.style.transform = `rotateZ(${ss}deg)`;
     
-
 });
 
 
@@ -168,13 +173,9 @@ function checkboxfunc(text){
     
     for(var i = 0 ; i < a.length ; i++){
         if(a[i].checked == true){
-            var string = 'Task '+ text + ' is in bound';
-            inbound.innerHTML = string;
+           
             newvar += 1;
-        }else{
-            inbound.innerHTML = 'No task is selected!'
         }
-        
     }
     if(newvar>1){
         return false;
