@@ -25,6 +25,19 @@ if(count == 0 ){
    
 }
 else{
+    var computedstyle = getComputedStyle(addbutton);
+    var transformvalue = computedstyle.transform;
+    var translateYValue = 0;
+    if(transformvalue && transformvalue!=='none'){
+        var matrix  = transformvalue.match(/matrix.*\((.+)\)/)[1].split(', ');
+        translateYValue = parseFloat(matrix[5]);
+    }
+    
+    if(translateYValue+60>720){
+console.log("BREACHHH");
+    }else{
+
+    
     spanElement.textContent = ' ';
 
     const inputelement = document.querySelector('.writetaskclass input');
@@ -87,9 +100,14 @@ else{
             // when click on the cross
             i.addEventListener('click',()=>{
 var parent = li.parentNode;
+var headingaftercross = document.getElementById('taskinbound');
+
 parent.removeChild(li);
 offset -= 60;
 countofcheckboxes -= 1;
+if(checkbox.checked){
+    headingaftercross.innerHTML = 'No task is selected.';
+}
 
 writetask.style.transform = `translateY(${offset}px)`;
 addbutton.style.transform = `translateY(${offset}px)`;
@@ -130,8 +148,8 @@ addbutton.style.transform = `translateY(${offset}px)`;
 }
 }
 
-
-});
+}
+}); // end of else of click plus button 
 
 
 
