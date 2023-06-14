@@ -232,8 +232,8 @@ bottom:107px;
 clock */
 .clock{
     position: relative;
-    bottom: 100px;
-    left:340px;
+    bottom: 250px;
+    left:390px;
     width: 390px;
     height: 390px;
     display: flex;
@@ -370,8 +370,8 @@ border-radius: 50%;
 
 .time{
     position: relative;
-    top: 350px;
-    right: 610px;
+    top: 250px;
+    right: 640px ;
   
 }
 .time-pickable{
@@ -380,21 +380,22 @@ border-radius: 50%;
 
 #alarmselectparagraph{
 
- 
+    text-align: center;
+justify-content: center;
 align-self: flex-start;
 font-size: 44px;
 color: white;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .alarmselect{
 
 position: relative;
-top: 259px;
+top: 159px;
 right: 170px;
-    border: 5px solid;
+
     display: flex;
-    width:690px;
+    width:770px;
 
     height: 260px;
     
@@ -417,4 +418,23 @@ border: 0;
 box-shadow: white;
 cursor: pointer
 ;
+}
+
+
+.alarmwillgoin{
+  
+    display: flex;
+    align-self: center;
+    margin-top: 800px;
+    margin-right: -840px;
+    position: absolute;
+}
+
+#AlarmGoesIn{
+
+    position: relative;
+    font-size:40px;
+    color: #eeeeee;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
