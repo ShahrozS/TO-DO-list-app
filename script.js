@@ -245,14 +245,20 @@ minute.append(option);
 const setalarmbutton = document.querySelector(".setalarm");
 
 setalarmbutton.addEventListener('click',()=>{
-
+    const alarmbutton = document.getElementById('setalarm');
+console.log(setalarmbutton.innerHTML);
 const hourselect = document.getElementById("hour");
+const minuteselect = document.getElementById("Minute");
+const mardiemselect = document.getElementById("mardiem");
+
+    if(setalarmbutton.innerHTML == "Set Alarm"){
+
 const hour = hourselect.value;
 
-const minuteselect = document.getElementById("Minute");
+
 const minute = minuteselect.value;
 
-const mardiemselect = document.getElementById("mardiem");
+
 const mardiem = mardiemselect.value;
 
 console.log("Selected time : "+ hour + " " + minute + " " + mardiem);
@@ -266,6 +272,20 @@ var time = hour+":"+minute+" "+mardiem;
 
 alarmtime = hour+ ":" + minute + " " + mardiem;
 
+alarmbutton.textContent = "Stop/Remove Alarm"
+hourselect.disabled = true;
+minuteselect.disabled= true;
+mardiemselect.disabled=true;
+
+}
+else if(setalarmbutton.innerHTML == "Stop/Remove Alarm"){
+    alarmbutton.textContent = "Set Alarm";
+    alarmtime = 0 ;
+ ringtone.pause();
+ hourselect.disabled = false;
+ minuteselect.disabled= false;
+ mardiemselect.disabled=false;
+}
 
 })
 
@@ -285,6 +305,7 @@ h = h-12;}
 ;
 if(time == alarmtime){
     ringtone.play();
+    ringtone.loop = true;
  
 }
 
