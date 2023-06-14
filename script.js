@@ -196,7 +196,7 @@ setInterval(()  =>{
     hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
     mn.style.transform = `rotateZ(${mm}deg)`;
     sc.style.transform = `rotateZ(${ss}deg)`;
-    
+  
 });
 
 // Function of limiting checkboxes
@@ -229,8 +229,9 @@ note.textContent = "*Dont go hard on yourself, focus on just one task at a time 
 
 // Time scripting
 
-
+let ringtone = new Audio("./files/alarm_clock.mp3");
 const minute = document.getElementById("Minute");
+let alarmtime;
 
 for(var i = 1 ; i < 60 ;i++){
 var option = document.createElement('option');
@@ -256,11 +257,40 @@ const mardiem = mardiemselect.value;
 
 console.log("Selected time : "+ hour + " " + minute + " " + mardiem);
 
+var alarmgoesin = document.getElementById('AlarmGoesIn');
 
+alarmgoesin.textContent = 'Alarm will go off in '+hour+":"+minute+" "+mardiem;
+
+
+var time = hour+":"+minute+" "+mardiem;
+
+alarmtime = hour+ ":" + minute + " " + mardiem;
 
 
 })
 
+
+setInterval(()=>{
+
+    let date = new Date;
+   let h = date.getHours();
+    let m = date.getMinutes();
+    let mardiem = "AM";
+
+if(h>=12){
+mardiem = "PM"
+h = h-12;}
+
+    var time = h + ":"+m+" "+mardiem;
+;
+if(time == alarmtime){
+    ringtone.play();
+ 
+}
+
+
+
+},1000);
 import * as TimePicker from "./TimePicker.js";
 
 
