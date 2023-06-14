@@ -4,7 +4,7 @@ const button  = document.querySelector('.plus');
 const spanElement = document.getElementById('clicktoadd');
 
 const writetaskinput = document.getElementById('writetask');
-
+var note = document.getElementById('note');
 let offset = 0;
 var arr = [];
 
@@ -14,7 +14,9 @@ let arraycount = 0;
 
 
 addbutton.addEventListener('click' , ()=>{
+    note.textContent = ' ';
 if(count == 0 ){
+
     spanElement.textContent = ' ';
     offset += 60;
     count = count+1;
@@ -99,6 +101,7 @@ console.log("BREACHHH");
 
             // when click on the cross
             i.addEventListener('click',()=>{
+                note.textContent = ' ';
 var parent = li.parentNode;
 var headingaftercross = document.getElementById('taskinbound');
 
@@ -136,10 +139,33 @@ addbutton.style.transform = `translateY(${offset}px)`;
  
    checkbox.addEventListener('change' , ()=>{
     if(checkbox.checked){
+      
+        note.textContent = ' ';
         var String  = li.innerText;
         h1.innerHTML = 'Task ' + String + ' is in bound!';
+
+        const taskinit = document.getElementById("taskinit");
+        const now = new Date();
+var hours = now.getHours();
+var minutes = now.getMinutes();
+const seconds = now.getSeconds();
+let meridiem = "AM";
+if(minutes<10){
+minutes  = minutes.toString().padStart(2,'0');
+}
+if(hours>=12){
+    hours = hours-12;
+    meridiem = "PM";
+}
+console.log(hours + ":" + minutes + ":" + seconds + meridiem) ;
+
+
+        
+        taskinit.innerHTML = hours + ":" + minutes +" " +meridiem;
+
+
     }
-    else{
+    else{ note.textContent = ' ';
         h1.innerHTML = 'No task is selected!';
     }
    })
@@ -173,14 +199,9 @@ setInterval(()  =>{
     
 });
 
-
-
-
-
-
-
-
+// Function of limiting checkboxes
 function checkboxfunc(text){
+    var note = document.getElementById('note');
     var a = document.getElementsByClassName('myCheckbox');
     var newvar = 0;
     var inbound = document.getElementById('taskinbound');
@@ -191,16 +212,56 @@ function checkboxfunc(text){
     
     for(var i = 0 ; i < a.length ; i++){
         if(a[i].checked == true){
-           
+         
             newvar += 1;
         }
     }
     if(newvar>1){
+        console.log ("hi??");
+note.textContent = "*Dont go hard on yourself, focus on just one task at a time :)";
+       console.log(note.textContent);
         return false;
-    }
+    }   
 }
 
 
+
+
+// Time scripting
+
+
+const minute = document.getElementById("Minute");
+
+for(var i = 1 ; i < 60 ;i++){
+var option = document.createElement('option');
+option.value =  i;
+option.textContent = i;
+minute.append(option);
+
+
+}
+
+const setalarmbutton = document.querySelector(".setalarm");
+
+setalarmbutton.addEventListener('click',()=>{
+
+const hourselect = document.getElementById("hour");
+const hour = hourselect.value;
+
+const minuteselect = document.getElementById("Minute");
+const minute = minuteselect.value;
+
+const mardiemselect = document.getElementById("mardiem");
+const mardiem = mardiemselect.value;
+
+console.log("Selected time : "+ hour + " " + minute + " " + mardiem);
+
+
+
+
+})
+
+import * as TimePicker from "./TimePicker.js";
 
 
 

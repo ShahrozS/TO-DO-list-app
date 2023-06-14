@@ -46,7 +46,9 @@
 
 
 
-</div>
+<div ><p id = "note"></p></div>
+
+    </div>
 <!-- The CLock -->
 <div class="clock">
     <h1 id = "taskinbound"></h1>
@@ -71,10 +73,59 @@
     </div>
 </div>
 
+
+
+
 </div>
+
+
+<!-- alarm thing -->
+
+<div class="alarmselect">
+
+    <p class="alarmselectparagraph" id="alarmselectparagraph">Your task is initiated at <span id="taskinit"></span> .Set a finishing time below to your task. An alarm will go off at the set time.</p>
+
+
+
+</div>
+<div class="time">
+    <!-- <input type="text" class="time-pickable" readonly> -->
+    
+    
+    <div class="time-picker">
+        <select  class="time-picker__select" id ="hour">
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+    
+        </select>
+        :
+        <select  class="time-picker__select" id="Minute">
+                    <option value="00">00</option>
+        </select>
+        <select  class="time-picker__select" id="mardiem">
+            <option value="am">am</option>
+            <option value="pm">pm</option>
+        </select>
+    </div>
+    
+
+    <button class="setalarm">Set Alarm</button>
+  
+    </div>
+    
 <script type="text/javascript">
    
 </script>
-<script src = "script.js"></script>
+<script src = "script.js" type="module"></script>
 </body>
 </html>

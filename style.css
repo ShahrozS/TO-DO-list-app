@@ -28,7 +28,7 @@ body{
     height: 992px;
     border-radius: 70px;
     padding: 40px 40px 10px 80px;
-    right: 180px;
+    left: 140px;
     
 
 }
@@ -214,11 +214,26 @@ position: relative;
 bottom:107px;
 
 }
+
+/* Note */
+
+#note{
+    position: relative;
+    top : 520px;
+    left:170px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+    font-weight: bold;
+    font-size: 22px;
+  
+}
+
 /* 
 clock */
 .clock{
     position: relative;
-    left: 140px;
+    bottom: 100px;
+    left:340px;
     width: 390px;
     height: 390px;
     display: flex;
@@ -322,4 +337,84 @@ border-radius: 50%;
     display: inline;
     white-space: nowrap;
 
+}
+
+/* Time  */
+
+.time-picker{
+    position: absolute;
+    display: flex;
+    padding: 10px;
+    background-color: #eeeeee;
+    border-radius: 6px;
+    justify-content: center;
+
+}
+
+.time-picker__select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    text-align: center;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    background: #ffffff;
+    font-family: 'Heebo',sans-serif;
+    justify-content: center;
+
+
+}
+
+.time{
+    position: relative;
+    top: 350px;
+    right: 610px;
+  
+}
+.time-pickable{
+    width: 78px;
+}
+
+#alarmselectparagraph{
+
+ 
+align-self: flex-start;
+font-size: 44px;
+color: white;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.alarmselect{
+
+position: relative;
+top: 259px;
+right: 170px;
+    border: 5px solid;
+    display: flex;
+    width:690px;
+
+    height: 260px;
+    
+}
+
+.time button{
+    position: relative;
+position: relative;
+
+align-self: center;
+top: 70px;
+left: 30px;
+height: 24px;
+width: 90px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #ff105e;
+outline: 0;
+border-radius: 10px;
+border: 0;
+box-shadow: white;
+cursor: pointer
+;
 }
