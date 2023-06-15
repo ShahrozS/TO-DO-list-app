@@ -138,13 +138,15 @@ addbutton.style.transform = `translateY(${offset}px)`;
     // checkbox functioality 
  
    checkbox.addEventListener('change' , ()=>{
+
+    
+    const taskinit = document.getElementById("taskinit");
     if(checkbox.checked){
       
         note.textContent = ' ';
         var String  = li.innerText;
         h1.innerHTML = 'Task ' + String + ' is in bound!';
 
-        const taskinit = document.getElementById("taskinit");
         const now = new Date();
 var hours = now.getHours();
 var minutes = now.getMinutes();
@@ -157,6 +159,9 @@ if(hours>=12){
     hours = hours-12;
     meridiem = "PM";
 }
+if(hours == 0){
+    hours = 12;
+}
 console.log(hours + ":" + minutes + ":" + seconds + meridiem) ;
 
 
@@ -165,8 +170,26 @@ console.log(hours + ":" + minutes + ":" + seconds + meridiem) ;
 
 
     }
-    else{ note.textContent = ' ';
+    else{
+        const alarmbutton = document.getElementById('setalarm');
+const hourselect = document.getElementById("hour");
+const minuteselect = document.getElementById("Minute");
+const mardiemselect = document.getElementById("mardiem");
+var alarmgoesin = document.getElementById('AlarmGoesIn');
+
+        note.textContent = ' ';
+    taskinit.innerHTML = " ";
         h1.innerHTML = 'No task is selected!';
+        alarmbutton.textContent = "Set Alarm";
+        alarmgoesin.innerHTML = " ";
+            alarmtime = 0 ;
+         ringtone.pause();
+         hourselect.disabled = false;
+         minuteselect.disabled= false;
+         mardiemselect.disabled=false;
+
+         alarmgoesin.textContent = " ";       
+        
     }
    })
 
