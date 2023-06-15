@@ -250,7 +250,7 @@ console.log(setalarmbutton.innerHTML);
 const hourselect = document.getElementById("hour");
 const minuteselect = document.getElementById("Minute");
 const mardiemselect = document.getElementById("mardiem");
-
+var alarmgoesin = document.getElementById('AlarmGoesIn');
     if(setalarmbutton.innerHTML == "Set Alarm"){
 
 const hour = hourselect.value;
@@ -263,9 +263,9 @@ const mardiem = mardiemselect.value;
 
 console.log("Selected time : "+ hour + " " + minute + " " + mardiem);
 
-var alarmgoesin = document.getElementById('AlarmGoesIn');
 
-alarmgoesin.textContent = 'Alarm will go off in '+hour+":"+minute+" "+mardiem;
+
+alarmgoesin.textContent = 'Alarm will go off at '+hour+":"+minute+" "+mardiem;
 
 
 var time = hour+":"+minute+" "+mardiem;
@@ -280,6 +280,7 @@ mardiemselect.disabled=true;
 }
 else if(setalarmbutton.innerHTML == "Stop/Remove Alarm"){
     alarmbutton.textContent = "Set Alarm";
+alarmgoesin.innerHTML = " ";
     alarmtime = 0 ;
  ringtone.pause();
  hourselect.disabled = false;
@@ -288,7 +289,6 @@ else if(setalarmbutton.innerHTML == "Stop/Remove Alarm"){
 }
 
 })
-
 
 setInterval(()=>{
 
