@@ -114,6 +114,7 @@ if(checkbox.checked){
 
 writetask.style.transform = `translateY(${offset}px)`;
 addbutton.style.transform = `translateY(${offset}px)`;
+alamrreset();
 
             } )
 
@@ -171,25 +172,8 @@ console.log(hours + ":" + minutes + ":" + seconds + meridiem) ;
 
     }
     else{
-        const alarmbutton = document.getElementById('setalarm');
-const hourselect = document.getElementById("hour");
-const minuteselect = document.getElementById("Minute");
-const mardiemselect = document.getElementById("mardiem");
-var alarmgoesin = document.getElementById('AlarmGoesIn');
-
-        note.textContent = ' ';
-    taskinit.innerHTML = " ";
-        h1.innerHTML = 'No task is selected!';
-        alarmbutton.textContent = "Set Alarm";
-        alarmgoesin.innerHTML = " ";
-            alarmtime = 0 ;
-         ringtone.pause();
-         hourselect.disabled = false;
-         minuteselect.disabled= false;
-         mardiemselect.disabled=false;
-
-         alarmgoesin.textContent = " ";       
-        
+    
+        alamrreset();
     }
    })
 
@@ -200,6 +184,30 @@ var alarmgoesin = document.getElementById('AlarmGoesIn');
 }
 }); // end of else of click plus button 
 
+// ALarm reset fucntion
+function alamrreset(){
+    const taskinit = document.getElementById("taskinit");
+    var note = document.getElementById('note');
+    var h1 =  document.getElementById('taskinbound');
+    const alarmbutton = document.getElementById('setalarm');
+    const hourselect = document.getElementById("hour");
+    const minuteselect = document.getElementById("Minute");
+    const mardiemselect = document.getElementById("mardiem");
+    var alarmgoesin = document.getElementById('AlarmGoesIn');
+    
+            note.textContent = ' ';
+        taskinit.innerHTML = " ";
+            h1.innerHTML = 'No task is selected!';
+            alarmbutton.textContent = "Set Alarm";
+            alarmgoesin.innerHTML = " ";
+                alarmtime = 0 ;
+             ringtone.pause();
+             hourselect.disabled = false;
+             minuteselect.disabled= false;
+             mardiemselect.disabled=false;
+    
+             alarmgoesin.textContent = " ";   
+}
 
 
 // THE CLOCK
@@ -323,9 +331,14 @@ setInterval(()=>{
 if(h>=12){
 mardiem = "PM"
 h = h-12;}
+if(h == 0){
+    h = 12;
+}
 
     var time = h + ":"+m+" "+mardiem;
 ;
+
+
 if(time == alarmtime){
     ringtone.play();
     ringtone.loop = true;
